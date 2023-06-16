@@ -10,15 +10,15 @@ CC = x86_64-nilrt-linux-gcc.exe
 CXX = x86_64-nilrt-linux-g++.exe
 
 # GCCSYSROOTPATH is generated from NI's bat files
-CXXFLAGS += -MMD -MP -W -Wall -pedantic -fPIC -std=c++14 \
+CXXFLAGS += -MMD -MP -fPIC -std=c++14 \
 	--sysroot="$(subst \,/,$(GCCSYSROOTPATH))" -fstrength-reduce \
-	-Os -fno-builtin -fno-strict-aliasing -fvisibility=protected
+	-Os -fno-builtin -fno-strict-aliasing
 
-CFLAGS += -MMD -MP -W -Wall -pedantic -fPIC -std=c11 \
+CFLAGS += -MMD -MP -fPIC -std=gnu11 \
 	--sysroot="$(subst \,/,$(GCCSYSROOTPATH))" -fstrength-reduce \
-	-Os -fno-builtin -fno-strict-aliasing -fvisibility=protected
+	-Os -fno-builtin -fno-strict-aliasing
 
-CPPFLAGS += -DkNIOSLinux
+CPPFLAGS += -DkNIOSLinux -DNORMALUNIX
 
 RM := cs-rm -rf
 
@@ -26,7 +26,7 @@ LDFLAGS += -fPIC -lrt -lpthread -lm -lc \
 	--sysroot="$(subst \,/,$(GCCSYSROOTPATH))"
 
 # add include directories (-I/path/to/dir) here
-INCLUDES :=
+INCLUDES := -Isrc
 
 # include directory for ni_modelframework.h
 NIVS_INC := "-IC:/VeriStand/$(VERISTAND_VERSION)/ModelInterface"
