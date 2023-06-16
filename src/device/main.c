@@ -5,30 +5,6 @@
 #include "m_argv.h"
 #include "d_main.h"
 
-int main(int argc, const char** argv)
-{
-    myargc = argc;
-    myargv = argv;
-
-    // struct termios initial_settings, new_settings;
-    // tcgetattr(0,&initial_settings);
-
-    // new_settings = initial_settings;
-    // new_settings.c_lflag &= ~ICANON;
-    // new_settings.c_lflag &= ~ECHO;
-    // new_settings.c_lflag &= ~ISIG;
-    // new_settings.c_cc[VMIN] = 0;
-    // new_settings.c_cc[VTIME] = 0;
-
-    // tcsetattr(0, TCSANOW, &new_settings);
-
-    D_DoomMain();
-
-    // tcsetattr(0, TCSANOW, &initial_settings);
-
-    return 0;
-}
-
 void I_StartTic (void)
 {
     // event_t event = {0,0,0,0};
