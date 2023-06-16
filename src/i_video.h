@@ -23,6 +23,7 @@
 #ifndef __I_VIDEO__
 #define __I_VIDEO__
 
+#include <stdint.h>
 
 #include "doomtype.h"
 
@@ -30,6 +31,7 @@
 #pragma interface
 #endif
 
+extern uint32_t screen_scale;
 
 // Called by D_DoomMain,
 // determines the hardware configuration

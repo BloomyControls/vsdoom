@@ -1,7 +1,7 @@
 /*
  * Auto-generated VeriStand model interface code for vsdoom.
  *
- * Generated Fri Jun 16 15:28:29 2023
+ * Generated Fri Jun 16 15:47:07 2023
  *
  * You almost certainly do NOT want to edit this file, as it may be overwritten
  * at any time!
@@ -43,9 +43,15 @@ ParamSizeWidth Parameters_sizes[1] DataSection(".NIVS.defaultparamsizes");
 
 
 /* Signals */
-int32_t SignalSize DataSection(".NIVS.siglistsize") = 0;
-NI_Signal rtSignalAttribs[1] DataSection(".NIVS.siglist");
-int32_t SigDimList[1] DataSection(".NIVS.sigdimlist");
+Signals rtSignal;
+
+int32_t SignalSize DataSection(".NIVS.siglistsize") = 1;
+NI_Signal rtSignalAttribs[] DataSection(".NIVS.siglist") = {
+  {0, "vsdoom/debug/display_scale", 0, "Display scale", 0, 0, rtINT, 1, 2, 0, 0},
+};
+int32_t SigDimList[] DataSection(".NIVS.sigdimlist") = {
+   1,  1, /* debug.display_scale */
+};
 
 
 /* Inports and outports */
@@ -118,6 +124,9 @@ double USER_GetValueByDataType(void* ptr, int32_t idx, int32_t type) {
 }
 
 int32_t USER_Initialize(void) {
+  /* Populate pointers to signal values */
+  rtSignalAttribs[0].addr = (uintptr_t)&rtSignal.debug.display_scale;
+
   return vsdoom_Initialize();
 }
 

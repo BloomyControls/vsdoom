@@ -1,7 +1,7 @@
 /*
  * Auto-generated VeriStand model types for vsdoom.
  *
- * Generated Fri Jun 16 15:28:29 2023
+ * Generated Fri Jun 16 15:47:07 2023
  *
  * You almost certainly do NOT want to edit this file, as it may be overwritten
  * at any time!
@@ -67,9 +67,20 @@ typedef struct Outports {
 } Outports;
 
 
+/* Signals structure */
+typedef struct Signals {
+  struct Signals_debug {
+    int32_t display_scale;
+  } debug;
+} Signals;
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
+
+/* Model signals */
+extern Signals rtSignal;
 
 /* Your model code should define these functions. Return NI_OK or NI_ERROR. */
 int32_t vsdoom_Initialize(void);

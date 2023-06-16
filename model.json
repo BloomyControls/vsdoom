@@ -33,5 +33,12 @@
   "outports": [
     { "name": "player.health" },
     { "name": "player.armor" }
+  ],
+  "signals": [
+    {
+      "name": "debug.display_scale",
+      "type": "i32",
+      "description": "Display scale"
+    }
   ]
 }

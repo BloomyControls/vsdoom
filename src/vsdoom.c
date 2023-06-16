@@ -10,6 +10,7 @@
 #include "d_main.h"
 #include "doomdef.h"
 #include "doomstat.h"
+#include "i_video.h"
 #include "model.h"
 #include "ni_modelframework.h"
 
@@ -83,6 +84,7 @@ int32_t vsdoom_Initialize(void) {
 
 int32_t vsdoom_Start(void) {
   D_DoomMain();
+  rtSignal.debug.display_scale = screen_scale;
   return NI_OK;
 }
 
