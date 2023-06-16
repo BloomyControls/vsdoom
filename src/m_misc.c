@@ -260,9 +260,11 @@ default_t	defaults[] =
     
 #endif
 
+#if 0
 #ifdef LINUX
     {"mousedev", (int*)&mousedev, (int)"/dev/ttyS0"},
     {"mousetype", (int*)&mousetype, (int)"microsoft"},
+#endif
 #endif
 
     {"use_mouse",&usemouse, 1},
