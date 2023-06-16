@@ -582,7 +582,7 @@ void IdentifyVersion (void)
     char *doomwaddir;
     doomwaddir = getenv("DOOMWADDIR");
     if (!doomwaddir)
-	doomwaddir = ".";
+	doomwaddir = "/c";
 
     // Commercial.
     doom2wad = malloc(strlen(doomwaddir)+1+9+1);
