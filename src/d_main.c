@@ -358,20 +358,7 @@ extern  boolean         demorecording;
 
 void D_DoomLoop (void)
 {
-    if (demorecording)
-	G_BeginRecording ();
-		
-    if (M_CheckParm ("-debugfile"))
-    {
-	char    filename[20];
-	sprintf (filename,"debug%i.txt",consoleplayer);
-	printf ("debug output to: %s\n",filename);
-	debugfile = fopen (filename,"w");
-    }
-	
-    I_InitGraphics ();
-
-    while (1)
+    //while (1)
     {
 	// frame syncronous IO operations
 	I_StartFrame ();                
@@ -1172,5 +1159,16 @@ void D_DoomMain (void)
 
     }
 
-    D_DoomLoop ();  // never returns
+    if (demorecording)
+	G_BeginRecording ();
+		
+    if (M_CheckParm ("-debugfile"))
+    {
+	char    filename[20];
+	sprintf (filename,"debug%i.txt",consoleplayer);
+	printf ("debug output to: %s\n",filename);
+	debugfile = fopen (filename,"w");
+    }
+	
+    I_InitGraphics ();
 }
