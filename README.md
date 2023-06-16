@@ -5,7 +5,11 @@ Sure, why not?
 This model is generated and maintained using our VeriStand model generation
 script: [BloomyControls/vsmodelgen][vsmodelgen]
 
+The original footwork for this port to the Linux framebuffer came from
+[stoffera/fbdoom][fbdoom].
+
 [vsmodelgen]: https://github.com/BloomyControls/vsmodelgen
+[fbdoom]: https://github.com/stoffera/fbdoom
 
 ## Requirements
 
