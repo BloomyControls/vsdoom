@@ -793,8 +793,15 @@ void D_DoomMain (void)
     FindResponseFile ();
 	
     IdentifyVersion ();
+
+    int outfd = open("/c/vsdoom_out.log", O_RDWR | O_CREAT | O_APPEND, 0777);
+    int errfd = open("/c/vsdoom_err.log", O_RDWR | O_CREAT | O_APPEND, 0777);
+    dup2(outfd, fileno(stdout));
+    dup2(errfd, fileno(stderr));
+
 	
     setbuf (stdout, NULL);
+    setbuf (stderr, NULL);
     modifiedgame = false;
 	
     nomonsters = M_CheckParm ("-nomonsters");
