@@ -28,7 +28,10 @@
     { "name": "input.minus" },
     { "name": "input.rshift" },
     { "name": "input.rctrl" },
-    { "name": "input.alt" }
+    { "name": "input.alt" },
+
+    { "name": "cheats.noclip" },
+    { "name": "cheats.godmode" }
   ],
   "outports": [
     { "name": "player.health" },

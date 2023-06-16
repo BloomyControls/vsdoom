@@ -7,10 +7,12 @@
  * Generated Fri Jun 16 14:05:30 2023
  */
 
+#include "d_englsh.h"
 #include "d_main.h"
 #include "doomdef.h"
 #include "doomstat.h"
 #include "i_video.h"
+#include "m_cheat.h"
 #include "model.h"
 #include "ni_modelframework.h"
 
@@ -43,6 +45,33 @@ static void check_input(double prev, double curr, int key) {
     event.type = ev_keyup;
     event.data1 = key;
     D_PostEvent(&event);
+  }
+}
+
+static void handle_cheats(player_t* player) {
+  // logic taken from ST_Responder() in st_stuff.c
+  int edge = inport_edge(prev_inports.cheats.godmode,
+                         curr_inports.cheats.godmode);
+  if (edge > 0) {
+    player->cheats |= CF_GODMODE;
+    if (player->mo) {
+      player->mo->health = 100;
+    }
+    player->health = 100;
+    player->message = STSTR_DQDON;
+  } else if (edge < 0) {
+    player->cheats &= ~CF_GODMODE;
+    player->message = STSTR_DQDOFF;
+  }
+
+  edge = inport_edge(prev_inports.cheats.noclip,
+                     curr_inports.cheats.noclip);
+  if (edge > 0) {
+    player->cheats |= CF_NOCLIP;
+    player->message = STSTR_NCON;
+  } else if (edge < 0) {
+    player->cheats &= ~CF_NOCLIP;
+    player->message = STSTR_NCOFF;
   }
 }
 
@@ -92,6 +121,7 @@ int32_t vsdoom_Step(const Inports* inports, Outports* outports,
                     double timestamp) {
   curr_inports = *inports;
   player_t* plyr = &players[consoleplayer];
+  handle_cheats(plyr);
   D_DoomLoop();
   prev_inports = curr_inports;
   outports->player.health = plyr->health;

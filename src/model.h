@@ -1,7 +1,7 @@
 /*
  * Auto-generated VeriStand model types for vsdoom.
  *
- * Generated Fri Jun 16 15:47:07 2023
+ * Generated Fri Jun 16 15:51:47 2023
  *
  * You almost certainly do NOT want to edit this file, as it may be overwritten
  * at any time!
@@ -55,6 +55,10 @@ typedef struct Inports {
     double rctrl;
     double alt;
   } input;
+  struct Inports_cheats {
+    double noclip;
+    double godmode;
+  } cheats;
 } Inports;
 
 
