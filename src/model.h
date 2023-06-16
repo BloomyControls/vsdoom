@@ -1,7 +1,7 @@
 /*
  * Auto-generated VeriStand model types for vsdoom.
  *
- * Generated Fri Jun 16 14:07:07 2023
+ * Generated Fri Jun 16 15:28:29 2023
  *
  * You almost certainly do NOT want to edit this file, as it may be overwritten
  * at any time!
@@ -58,6 +58,15 @@ typedef struct Inports {
 } Inports;
 
 
+/* Outports structure */
+typedef struct Outports {
+  struct Outports_player {
+    double health;
+    double armor;
+  } player;
+} Outports;
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
@@ -65,7 +74,7 @@ extern "C" {
 /* Your model code should define these functions. Return NI_OK or NI_ERROR. */
 int32_t vsdoom_Initialize(void);
 int32_t vsdoom_Start(void);
-int32_t vsdoom_Step(const Inports* inports, double timestamp);
+int32_t vsdoom_Step(const Inports* inports, Outports* outports, double timestamp);
 int32_t vsdoom_Finalize(void);
 
 #ifdef __cplusplus

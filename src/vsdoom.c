@@ -9,6 +9,7 @@
 
 #include "d_main.h"
 #include "doomdef.h"
+#include "doomstat.h"
 #include "model.h"
 #include "ni_modelframework.h"
 
@@ -85,10 +86,14 @@ int32_t vsdoom_Start(void) {
   return NI_OK;
 }
 
-int32_t vsdoom_Step(const Inports* inports, double timestamp) {
+int32_t vsdoom_Step(const Inports* inports, Outports* outports,
+                    double timestamp) {
   curr_inports = *inports;
+  player_t* plyr = &players[consoleplayer];
   D_DoomLoop();
   prev_inports = curr_inports;
+  outports->player.health = plyr->health;
+  outports->player.armor = plyr->armorpoints;
   return NI_OK;
 }
 

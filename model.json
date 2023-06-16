@@ -30,5 +30,8 @@
     { "name": "input.rctrl" },
     { "name": "input.alt" }
   ],
-  "outports": []
+  "outports": [
+    { "name": "player.health" },
+    { "name": "player.armor" }
+  ]
 }

@@ -1,7 +1,7 @@
 /*
  * Auto-generated VeriStand model interface code for vsdoom.
  *
- * Generated Fri Jun 16 14:07:07 2023
+ * Generated Fri Jun 16 15:28:29 2023
  *
  * You almost certainly do NOT want to edit this file, as it may be overwritten
  * at any time!
@@ -50,8 +50,8 @@ int32_t SigDimList[1] DataSection(".NIVS.sigdimlist");
 
 /* Inports and outports */
 int32_t InportSize = 26;
-int32_t OutportSize = 0;
-int32_t ExtIOSize DataSection(".NIVS.extlistsize") = 26;
+int32_t OutportSize = 2;
+int32_t ExtIOSize DataSection(".NIVS.extlistsize") = 28;
 NI_ExternalIO rtIOAttribs[] DataSection(".NIVS.extlist") = {
   /* Inports */
   {0, "input/right", 0, 0, 1, 1, 1},
@@ -80,6 +80,10 @@ NI_ExternalIO rtIOAttribs[] DataSection(".NIVS.extlist") = {
   {0, "input/rshift", 0, 0, 1, 1, 1},
   {0, "input/rctrl", 0, 0, 1, 1, 1},
   {0, "input/alt", 0, 0, 1, 1, 1},
+
+  /* Outports */
+  {0, "player/health", 0, 1, 1, 1, 1},
+  {0, "player/armor", 0, 1, 1, 1, 1},
 
   /* Terminate list */
   {-1, NULL, 0, 0, 0, 0, 0},
@@ -123,9 +127,9 @@ int32_t USER_ModelStart(void) {
 
 int32_t USER_TakeOneStep(double* inData, double* outData, double timestamp) {
   const struct Inports* inports = (const struct Inports*)inData;
-  (void)outData; /* suppress unused variable */
+  struct Outports* outports = (struct Outports*)outData;
 
-  return vsdoom_Step(inports, timestamp);
+  return vsdoom_Step(inports, outports, timestamp);
 }
 
 int32_t USER_Finalize(void) {
