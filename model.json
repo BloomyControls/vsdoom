@@ -35,7 +35,8 @@
   ],
   "outports": [
     { "name": "player.health" },
-    { "name": "player.armor" }
+    { "name": "player.armor" },
+    { "name": "player.ammo" }
   ],
   "signals": [
     {

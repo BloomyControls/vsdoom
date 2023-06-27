@@ -1,7 +1,7 @@
 /*
  * Auto-generated VeriStand model interface code for vsdoom.
  *
- * Generated Fri Jun 16 15:51:47 2023
+ * Generated Tue Jun 27 14:14:59 2023
  *
  * You almost certainly do NOT want to edit this file, as it may be overwritten
  * at any time!
@@ -56,8 +56,8 @@ int32_t SigDimList[] DataSection(".NIVS.sigdimlist") = {
 
 /* Inports and outports */
 int32_t InportSize = 28;
-int32_t OutportSize = 2;
-int32_t ExtIOSize DataSection(".NIVS.extlistsize") = 30;
+int32_t OutportSize = 3;
+int32_t ExtIOSize DataSection(".NIVS.extlistsize") = 31;
 NI_ExternalIO rtIOAttribs[] DataSection(".NIVS.extlist") = {
   /* Inports */
   {0, "input/right", 0, 0, 1, 1, 1},
@@ -92,6 +92,7 @@ NI_ExternalIO rtIOAttribs[] DataSection(".NIVS.extlist") = {
   /* Outports */
   {0, "player/health", 0, 1, 1, 1, 1},
   {0, "player/armor", 0, 1, 1, 1, 1},
+  {0, "player/ammo", 0, 1, 1, 1, 1},
 
   /* Terminate list */
   {-1, NULL, 0, 0, 0, 0, 0},

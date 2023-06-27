@@ -8,6 +8,7 @@
  */
 
 #include "d_englsh.h"
+#include "d_items.h"
 #include "d_main.h"
 #include "doomdef.h"
 #include "doomstat.h"
@@ -126,6 +127,12 @@ int32_t vsdoom_Step(const Inports* inports, Outports* outports,
   prev_inports = curr_inports;
   outports->player.health = plyr->health;
   outports->player.armor = plyr->armorpoints;
+  ammotype_t ammotype = weaponinfo[plyr->readyweapon].ammo;
+  if (ammotype < NUMAMMO) {
+    outports->player.ammo = plyr->ammo[ammotype];
+  } else {
+    outports->player.ammo = -1;
+  }
   return NI_OK;
 }
 

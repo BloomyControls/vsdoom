@@ -1,7 +1,7 @@
 /*
  * Auto-generated VeriStand model types for vsdoom.
  *
- * Generated Fri Jun 16 15:51:47 2023
+ * Generated Tue Jun 27 14:14:59 2023
  *
  * You almost certainly do NOT want to edit this file, as it may be overwritten
  * at any time!
@@ -67,6 +67,7 @@ typedef struct Outports {
   struct Outports_player {
     double health;
     double armor;
+    double ammo;
   } player;
 } Outports;
 
