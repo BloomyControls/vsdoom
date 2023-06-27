@@ -19,7 +19,8 @@ The original footwork for this port to the Linux framebuffer came from
   output
 - a copy of Doom from which to source the DOOM.WAD file
 
-The DOOM.WAD file must be placed on the target in the `/c` directory.
+The DOOM.WAD file must be placed on the target in the `/c` directory. It must be
+named in lowercase (`doom.wad`), or else the game will not find it!
 
 ## Building
 
