@@ -1,4 +1,4 @@
-#include "i_video.h"
+#include "../i_video.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,7 +7,7 @@
 #include <linux/fb.h>
 #include <sys/mman.h>
 #include <stdint.h>
-#include "v_video.h"
+#include "../v_video.h"
 
 /* factor to upscale the screen by */
 uint32_t screen_scale = 1;
@@ -50,9 +50,8 @@ void I_InitGraphics (void)
     }
 
     /* Figure out the size of the screen in bytes */
-    screensize = vinfo.xres * vinfo.yres * vinfo.bits_per_pixel / 8;
-    printf("Screen size is %ld\n",screensize);
-    printf("Vinfo.bpp = %d\n",vinfo.bits_per_pixel);
+    screensize = vinfo.xres_virtual * vinfo.yres_virtual *
+        (vinfo.bits_per_pixel / 8);
 
     screen_scale = minu32(vinfo.xres / SCREENWIDTH, vinfo.yres / SCREENHEIGHT);
 
